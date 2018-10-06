@@ -12,11 +12,11 @@ def byteArrayOut():
         return bytes(results)
 
 
-def strToByte(stringRow):
+def strToByte(buttonString):
     count = 0
 
-    for i, char in enumerate(stringRow):
-        if stringRow[i] != '.': count += (2 ** (7 - i))
+    for i, char in enumerate(buttonString):
+        if buttonString[i] != '.': count += (2 ** (7 - i))
 
     return count
 
