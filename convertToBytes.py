@@ -14,14 +14,9 @@ def byteArrayOut():
 
 def strToByte(stringRow):
     count = 0
-    if stringRow[0] != '.': count += 128
-    if stringRow[1] != '.': count += 64
-    if stringRow[2] != '.': count += 32
-    if stringRow[3] != '.': count += 16
-    if stringRow[4] != '.': count += 8
-    if stringRow[5] != '.': count += 4
-    if stringRow[6] != '.': count += 2
-    if stringRow[7] != '.': count += 1
+
+    for i, char in enumerate(stringRow):
+        if stringRow[i] != '.': count += (2 ** (7 - i))
 
     return count
 
@@ -41,7 +36,7 @@ def byteToStr(byte):
 
 # print(byteArrayOut())
   
-# print(byteToStr(0x82))
+# print(byteToStr(0x88))
 
 def generateFM2(byteArray):
     file = open('output.fm2', 'w')
@@ -74,4 +69,4 @@ def generateFM2(byteArray):
         file.write(prefix + byteToStr(byte) + '|........||' + '\n')
 
 
-generateFM2(byteArrayOut())
+# generateFM2(byteArrayOut())
