@@ -1,5 +1,3 @@
-print("start")
-
 
 def byteArrayOut():
     with open("C:\\Users\\Jacob Justice\\Documents\\hacknc 2018\\happylee-supermariobros,warped.fm2") as f:
@@ -9,12 +7,12 @@ def byteArrayOut():
 
         for line in f_array:
             if line[0] == '|':
-                results.append(stringToByte(line[3:11]))
+                results.append(strToByte(line[3:11]))
 
         return bytes(results)
 
 
-def stringToByte(stringRow):
+def strToByte(stringRow):
     count = 0
     if stringRow[0] != '.': count += 128
     if stringRow[1] != '.': count += 64
@@ -24,6 +22,22 @@ def stringToByte(stringRow):
     if stringRow[5] != '.': count += 4
     if stringRow[6] != '.': count += 2
     if stringRow[7] != '.': count += 1
-    return count
+    return
+
+
+def byteToStr(byte):
+  buttons = 'RLDUTSBA'
+  binString = '{0:08b}'.format(byte)
+  buttonString = ''
+
+  for i, digit in enumerate(binString):
+    if digit == '1':
+      buttonString += buttons[i]
+    else:
+      buttonString += '.'
+
+  return buttonString
 
 print(byteArrayOut())
+  
+print(byteToStr(0x82))
