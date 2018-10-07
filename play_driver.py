@@ -1,7 +1,6 @@
 from gpiozero import LED
 # R  L  D  U  T  S  B  A
-
-# 12 16 20 21  6 13 19 21
+# 12 16 20 21 6  13 19 21
 R = LED(12)
 L = LED(16)
 D = LED(20)
